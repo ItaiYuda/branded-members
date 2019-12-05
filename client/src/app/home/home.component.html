@@ -1,0 +1,46 @@
+<div class="md-form form-sm home-container">
+  <div>
+    <h1>Welcome {{ currentUser.userName }}</h1>
+  </div>
+  <input
+    mdbInput
+    type="text"
+    id="searchText"
+    [(ngModel)]="searchText"
+    placeholder="search for user"
+    class="form-control"
+  />
+  <div class="form-group form-inline age-input">
+    <label>Age Filter: </label>
+    <input
+      mdbInput
+      type="number"
+      id="serachAge"
+      maxlength="2"
+      min="0"
+      max="99"
+      [(ngModel)]="serachAge"
+      class="form-control"
+    />
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col" (click)="orderByAge()">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of renderUsers(); index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        {{ user.userName }}
+      </td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.age | number }}</td>
+    </tr>
+  </tbody>
+</table>
