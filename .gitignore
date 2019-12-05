@@ -1,2 +1,4 @@
 /node_modules
-/client
+/client-react
+
+/client/node_modules
